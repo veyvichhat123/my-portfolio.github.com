@@ -94,4 +94,4 @@ ENV PORT=10000
 EXPOSE 10000
 
 # Start Apache
-CMD ["apache2-foreground"]
+CMD ["sh", "-c", "php artisan storage:link --force; php artisan config:cache; php artisan view:cache; apache2-foreground"]
