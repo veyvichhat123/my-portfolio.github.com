@@ -7,7 +7,7 @@
     <div class="min-w-0">
         <div class="flex items-center gap-4">
             @if ($item->logo)
-                <img src="{{ asset('storage/' . $item->logo) }}" alt="" loading="lazy"
+                <img src="{{ \Illuminate\Support\Facades\Storage::url($item->logo) }}" alt="" loading="lazy"
                      class="h-12 w-12 flex-none rounded-md border b-line bg-white object-cover">
             @endif
             <div>

@@ -1,7 +1,7 @@
 <a href="{{ route('projects.show', $project) }}"
    class="group grid items-start gap-5 border-b b-line py-7 sm:grid-cols-[240px_1fr] sm:gap-8">
     @if ($project->thumbnail)
-        <img src="{{ asset('storage/' . $project->thumbnail) }}"
+        <img src="{{ \Illuminate\Support\Facades\Storage::url($project->thumbnail) }}"
              alt="{{ $project->tr('title') }}"
              loading="lazy"
              class="aspect-[4/3] w-full rounded-md object-cover">

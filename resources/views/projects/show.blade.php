@@ -7,7 +7,7 @@
     <meta property="og:title" content="{{ $project->tr('title') }}">
     <meta property="og:description" content="{{ \Illuminate\Support\Str::limit((string) $project->tr('description'), 155) }}">
     @if ($project->thumbnail)
-        <meta property="og:image" content="{{ asset('storage/' . $project->thumbnail) }}">
+        <meta property="og:image" content="{{ \Illuminate\Support\Facades\Storage::url($project->thumbnail) }}">
     @endif
 @endpush
 
@@ -32,7 +32,7 @@
     </div>
 
     @if ($project->thumbnail)
-        <img src="{{ asset('storage/' . $project->thumbnail) }}" alt="{{ $project->tr('title') }}"
+        <img src="{{ \Illuminate\Support\Facades\Storage::url($project->thumbnail) }}" alt="{{ $project->tr('title') }}"
              class="mt-8 w-full rounded-lg border b-line object-cover">
     @endif
 
@@ -65,7 +65,7 @@
                 </div>
             @else
                 <video controls preload="metadata" class="w-full rounded-lg border b-line bg-black">
-                    <source src="{{ asset('storage/' . $project->video_file) }}">
+                    <source src="{{ \Illuminate\Support\Facades\Storage::url($project->video_file) }}">
                 </video>
             @endif
         </section>
@@ -76,8 +76,8 @@
             <h2 class="font-display mb-5 text-4xl c-ink">{{ __('Gallery') }}</h2>
             <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 @foreach ($project->gallery as $image)
-                    <a href="{{ asset('storage/' . $image) }}" target="_blank" rel="noopener">
-                        <img src="{{ asset('storage/' . $image) }}" alt="" loading="lazy"
+                    <a href="{{ \Illuminate\Support\Facades\Storage::url($image) }}" target="_blank" rel="noopener">
+                        <img src="{{ \Illuminate\Support\Facades\Storage::url($image) }}" alt="" loading="lazy"
                              class="aspect-video w-full rounded-lg border b-line object-cover transition hover:opacity-90">
                     </a>
                 @endforeach
