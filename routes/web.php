@@ -26,3 +26,8 @@ Route::get('/lang/{locale}', function (string $locale) {
 //For Menu Routing
 Route::get('/page/{slug}', [\App\Http\Controllers\PageController::class, 'show'])
     ->name('page.show');
+
+
+// routes/web.php
+Route::get('/experience/{experience}', [ExperienceController::class, 'show'])->name('experience.show');
+Route::get('/education/{education}',   [EducationController::class,  'show'])->name('education.show');

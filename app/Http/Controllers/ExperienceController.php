@@ -15,4 +15,9 @@ class ExperienceController extends Controller
 
         return view('experience.index', compact('experiences'));
     }
+    public function show(Experience $experience)
+    {
+        abort_unless($experience->is_active, 404);
+        return view('experience.show', compact('experience'));
+    }
 }

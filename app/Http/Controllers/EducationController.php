@@ -15,4 +15,10 @@ class EducationController extends Controller
 
         return view('education.index', compact('education'));
     }
+    public function show(Education $education)
+    {
+        abort_unless($education->is_active, 404);
+
+        return view('education.show', compact('education'));
+    }
 }
